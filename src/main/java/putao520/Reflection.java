@@ -36,8 +36,18 @@ public class Reflection extends AbstractMojo {
     @Parameter(name = "files", defaultValue = "")
     private String[] files = new String[0];
 
+    // 资源目录默认路径
+    @Parameter(property = "resourcesDir", defaultValue = "")
+    private String resourcesDir;
+
     @Parameter(property = "basedir", defaultValue = "")
     private String projectFolder;
+
+    @Parameter(property = "groupId", defaultValue = "")
+    private String groupId;
+
+    @Parameter(property = "artifactId", defaultValue = "")
+    private String artifactId;
 
 
     private void dir(File dir, GeneratorGraalvmReflection gen, Function<File, Boolean> fn) {

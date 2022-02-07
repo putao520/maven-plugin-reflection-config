@@ -41,7 +41,7 @@ public class ClassLoaderExpand extends ClassLoader {
         name = name.split("\\.")[0];
         byte[] datas = loadClassData(name);
         String prefix = location;
-        String[] prefixArr = prefix.indexOf("/") >= 0 ? prefix.split("/") : prefix.split("\\\\");
+        String[] prefixArr = prefix.split(String.valueOf(File.separatorChar));
         List<String> nameFullArr = new ArrayList<>();
         nameFullArr.add(name);
         int i = prefixArr.length;
@@ -78,7 +78,7 @@ public class ClassLoaderExpand extends ClassLoader {
     protected byte[] loadClassData(String name) {
         FileInputStream fis = null;
         byte[] datas = null;
-        String ch = location.indexOf("/") >= 0 ? "/" : "\\\\";
+        String ch = String.valueOf(File.separatorChar);
         try {
             fis = new FileInputStream(location + ch + name + ".class");
             ByteArrayOutputStream bos = new ByteArrayOutputStream();

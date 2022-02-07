@@ -35,8 +35,7 @@ public class GeneratorGraalvmReflection {
         }
         String absTempFile = GeneratorGraalvmReflectionConfig();
         try {
-            String ch = currentProjectFolder.indexOf("/") >= 0 ? "/" : "\\\\";
-            File file = new File(currentProjectFolder + ch + "graalvm_reflection.json");
+            File file = new File(currentProjectFolder + File.separatorChar + "gsc-reflect-config.json");
             if (file.exists()) {
                 file.delete();
             }
