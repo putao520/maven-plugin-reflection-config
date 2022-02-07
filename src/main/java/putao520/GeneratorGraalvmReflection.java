@@ -37,8 +37,14 @@ public class GeneratorGraalvmReflection {
         try {
             File file = new File(currentProjectFolder + File.separatorChar + "gsc-reflect-config.json");
             if (file.exists()) {
+                // 读取源文件后删除它
                 file.delete();
             }
+            // 读取临时文件
+
+            // 内容 name 去重合并
+
+            // 写回 file
 
             File temp = new File(absTempFile);
             FileUtils.copyFile(temp, file.getAbsoluteFile());

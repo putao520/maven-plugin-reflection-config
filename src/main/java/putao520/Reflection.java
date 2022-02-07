@@ -78,7 +78,17 @@ public class Reflection extends AbstractMojo {
     }
 
     public void execute() {
-        GeneratorGraalvmReflection gen = GeneratorGraalvmReflection.build(projectFolder);
+        GeneratorGraalvmReflection gen = GeneratorGraalvmReflection.build(resourcesDir
+                + File.separatorChar
+                + "META-INF"
+                + File.separatorChar
+                + "native-image"
+                + File.separatorChar
+                + groupId
+                + File.separatorChar
+                + artifactId
+                + File.separatorChar
+        );
         for (String file : files) {
             File dir = new File(file);
             if (dir.isDirectory()) {
